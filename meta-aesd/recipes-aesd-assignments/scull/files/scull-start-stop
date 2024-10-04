@@ -1,0 +1,18 @@
+#!/bin/sh 
+
+case "$1" in 
+    start)
+    echo "Loading LDD kernel modules..."
+    # 1: start scull module
+    /etc/init.d/scull_load
+    ;;
+    stop)
+    echo "Unloading LDD kernel modules..."
+    # 1: stop scull module
+    /etc/init.d/scull_unload
+    ;;
+    *)
+    echo "Usage: $0 { start | stop }"
+    exit 1
+esac
+exit 0

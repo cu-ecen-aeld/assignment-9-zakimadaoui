@@ -1,0 +1,23 @@
+#!/bin/sh 
+
+case "$1" in 
+    start)
+    echo "Loading LDD kernel modules..."
+    # start faulty module
+    /etc/init.d/module_load faulty
+    # start hello module
+    modprobe hello
+    ;;
+    stop)
+    echo "Unloading LDD kernel modules..."
+
+    # stop faulty module
+    /etc/init.d/module_unload faulty
+    # stop hello module
+    rmmod hello
+    ;;
+    *)
+    echo "Usage: $0 { start | stop }"
+    exit 1
+esac
+exit 0
