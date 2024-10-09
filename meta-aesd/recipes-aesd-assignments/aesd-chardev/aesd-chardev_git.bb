@@ -13,10 +13,11 @@ LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = ""
 
 SRC_URI = "git://github.com/cu-ecen-aeld/assignments-3-and-later-zakimadaoui.git;protocol=ssh;branch=main"
+# SRC_URI = "git:///home/mzak6762/assignments-3-and-later-zakimadaoui;protocol=file;branch=main"
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "ac6323f3b4eb8697f0f8759924ead405a04d144d"
+SRCREV = "e3e4083dfa26299d879d2cd309ae162673e23756"
 
 S = "${WORKDIR}/git/aesd-char-driver"
 
@@ -37,6 +38,7 @@ do_install:append() {
     install -m 0755 ${S}/aesd-start-stop    ${D}${INIT_D_DIR}/aesd-start-stop
     install -m 0755 ${S}/aesdchar_load      ${D}${INIT_D_DIR}/aesdchar_load
     install -m 0755 ${S}/aesdchar_unload    ${D}${INIT_D_DIR}/aesdchar_unload
+
 }
 
 FILES:${PN} += "\
